@@ -1,0 +1,3 @@
+PersonDetails{name='Sagar', address='Rajput', city='Pune', state='Maharastra', zip='420312', phoneNo='7893447817', email='sagar@gmail.com'}
+PersonDetails{name='Yogesh', address='Shevgan', city='Aurangabad', state='Maharastra', zip='423701', phoneNo='9011871426', email='yogesh11@gmail.com'}
+PersonDetails{name='Dinesh', address='Singh', city='Hadapsar', state='Maharastra', zip='412307', phoneNo='9011653077', email='dinesh@gmail.com'}
