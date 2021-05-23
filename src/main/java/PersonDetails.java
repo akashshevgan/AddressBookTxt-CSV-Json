@@ -1,11 +1,19 @@
+import com.opencsv.bean.CsvBindByName;
+
 public class PersonDetails {
-    public String name;
-    public String address;
-    public String city;
-    public String state;
-    public String zip;
-    public String phoneNo;
-    public String email;
+    @CsvBindByName public String name;
+
+    @CsvBindByName public String address;
+
+    @CsvBindByName public String city;
+
+    @CsvBindByName public String state;
+
+    @CsvBindByName public String zip;
+
+    @CsvBindByName public String phoneNo;
+
+    @CsvBindByName public String email;
 
     public PersonDetails(String name, String address, String city, String state, String zip, String phoneNo, String email) {
         this.name = name;
