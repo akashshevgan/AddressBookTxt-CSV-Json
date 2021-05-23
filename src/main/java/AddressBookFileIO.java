@@ -20,7 +20,7 @@ import java.util.Arrays;
 public class AddressBookFileIO {
     public static String FILE_NAME = "D:\\AddressBookTxt-CSV-Json\\src\\main\\resources\\addressBook.txt";
     public static String CSV_FILE_NAME = "D:\\AddressBookTxt-CSV-Json\\src\\main\\resources\\addressBook.csv";
-
+    public static String JSON_FILE_NAME = "D:\\AddressBookTxt-CSV-Json\\src\\main\\resources\\addressBook.json";
     public void writeDataToFile(List<PersonDetails> personDetails) {
         StringBuffer buffer = new StringBuffer();
         personDetails.forEach(details -> {
@@ -82,6 +82,40 @@ public class AddressBookFileIO {
         long count = 0;
         try {
             count = Files.lines(new File(CSV_FILE_NAME).toPath())
+                    .count();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Count is:" +count);
+        return count;
+    }
+
+    public void writeDataToJSONFile(List<PersonDetails> personDetails) {
+        try {
+            Gson gson = new Gson();
+            String json = gson.toJson(personDetails);
+            FileWriter writer = new FileWriter(JSON_FILE_NAME);
+            writer.write(json);
+            gson.toJson(personDetails,writer);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readJsonData() {
+        try {
+            Files.lines(new File(JSON_FILE_NAME).toPath())
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public long JsonlistCount() {
+        long count = 0;
+        try {
+            count = Files.lines(new File(JSON_FILE_NAME).toPath())
                     .count();
         } catch (IOException e) {
             e.printStackTrace();

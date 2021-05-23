@@ -33,4 +33,18 @@ public class AddressBookFileIOTest {
         long count = addressBookFileIO.CsvlistCount();
         Assertions.assertEquals(4,count);
     }
+
+    @Test
+    public void givenThreeAddressBookDataWhenWritten_tOJSON_FileShouldGiveResult() throws IOException {
+        PersonDetails[] arrayOfData = {
+                new PersonDetails("Sagar", "Rajput", "Pune", "Maharastra", "420312", "7893447817", "sagar@gmail.com"),
+                new PersonDetails("Yogesh", "Shevgan", "Aurangabad", "Maharastra", "423701", "9011871426", "yogesh11@gmail.com"),
+                new PersonDetails("Dinesh", "Singh", "Hadapsar", "Maharastra", "412307", "9011653077", "dinesh@gmail.com")
+        };
+        AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
+        addressBookFileIO.writeDataToJSONFile(Arrays.asList(arrayOfData));
+        addressBookFileIO.readJsonData();
+        long count = addressBookFileIO.JsonlistCount();
+        Assertions.assertEquals(1,count);
+    }
 }
